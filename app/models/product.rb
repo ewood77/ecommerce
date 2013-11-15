@@ -5,6 +5,6 @@ class Product < ActiveRecord::Base
   has_many :orders, :through => :lineItems
   
   validates :category, :description, :name, :price, :stock_quantity, :image_path, :presence => true
-  validates :price, :numericality => { :greater_than => 0.0 }
+  validates :price, :numericality => { :greater_than_or_equal_to => 0.01 }
   validates :stock_quantity, :numericality => { :only_integer => true }
 end
