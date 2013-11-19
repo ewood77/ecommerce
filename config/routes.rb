@@ -1,6 +1,14 @@
 Ecommerce::Application.routes.draw do
+  get "product/index"
+  get "about/index"
+
+  root :to => 'product#index', :via => :get
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
+  match '/about' => "about#about", :as => 'about', :via => :get
+  match '/contact' => "about#contact", :as => 'contact', :via => :get
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
