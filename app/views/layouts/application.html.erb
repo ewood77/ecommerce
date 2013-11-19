@@ -7,13 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div>
-  <%= link_to 'About', about_path %>
-  <%= link_to 'Contact', contact_path %>
+<div id='temp'>
+  <span>
+    TEMP SITE NAVIGATION:
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'About', about_path %>
+    <%= link_to 'Contact', contact_path %>
+  </span>
 </div>
+
+<header>
+
+  <div id='login'>
+    <span class='button'>Login</span>
+    <span class='button'>Logout</span>
+  </div>
+
+  <div id='shop'>
+    <span class='button'>Shopping Cart</span>
+    <span class='button'>Wish List</span>
+    <span class='button'>Help</span>
+  </div>
+</header>
 
 <%= yield %>
 
+<footer>
+  <span>Copyright &copy; 2013 204Hats.com</span>
+</footer>
 </body>
 </html>
