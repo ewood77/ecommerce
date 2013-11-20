@@ -1,19 +1,27 @@
-<div class='featured'>
-  <% @products.each do |product| %>
-    <div id='name'>
-      <%= product.name %>
-    </div>
-    <div id='image'>
-      <%= image_tag product.image_path, :size => "40x30" %>
-    </div>
-    <div id='description'>
-      <strong>Price: </strong><%= product.price %><br />
-      <strong>Category: </strong><%= product.category %><br />
-      <% if product.stock_quantity > 0 %>
-        <strong>Availability: </strong><span>In Stock</span>
-      <% else %>
-        <strong>Availability: </strong><span>Out of Stock</span>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<% @products.each do |product| %>
+  <table id='product'>
+    <tr>
+      <td colspan=2><%= product.name %></td>
+    </tr>
+    <tr>
+      <td rowspan=3><%= image_tag product.image_path, :size => '50x40' %></td>
+      <td>
+        <strong>Price: </strong><%= product.price %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Category: </strong><%= product.category %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <% if product.stock_quantity > 0 %>
+          <strong>Availability: </strong><span>In Stock</span>
+        <% else %>
+          <strong>Availability: </strong><span>Out of Stock</span>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+<% end %>
