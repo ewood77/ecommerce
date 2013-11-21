@@ -6,11 +6,11 @@ ActiveAdmin.register Product do
 
     index do
       selectable_column
-      column :category
-      column :description
       column :name
+      column :category
       column :price
       column "QTY", :stock_quantity
+      column :description
       
       column "Image" do |image|
         image_tag(image.image_path, :size => "40x30")
