@@ -11,7 +11,6 @@ ActiveAdmin.register Product do
       column :price
       column "QTY", :stock_quantity
       column :description
-      
       column "Image" do |image|
         image_tag(image.image_path, :size => "40x30")
       end

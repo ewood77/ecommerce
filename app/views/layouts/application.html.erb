@@ -7,34 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id='temp'>
-  <span>
-    TEMP SITE NAVIGATION:
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'About', about_path %>
-    <%= link_to 'Contact', contact_path %>
-  </span>
+<div id="wrap">
+  <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <!--<span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>-->
+        </button>
+        <a class="navbar-brand" href="#">204Hats</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href='#'>CFL</a></li>
+              <li><a href='#'>NFL</a></li>
+              <li><a href='#'>NHL</a></li>
+              <li><a href='#'>MLB</a></li>
+              <li><a href='#'>NBA</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About Us', about_path %></li>
+          <li><%= link_to 'Contact Us', contact_path %></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
 </div>
-
-<header>
-
-  <div id='login'>
-    <span class='button'>Login</span>
-    <span class='button'>About Us</span>
-    <span class='button'>Contact Us</span>
-  </div>
-
-  <div id='shop'>
-    <span class='button'>Shopping Cart</span>
-    <span class='button'>Wish List</span>
-    <span class='button'>Help</span>
-  </div>
-</header>
-
 <%= yield %>
 
-<footer>
-  <span>Copyright &copy; 2013 204Hats.com</span>
-</footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted credit">Copyright &copy; 204Hats 2013</p>
+    </div>
+  </div>
+
 </body>
 </html>
