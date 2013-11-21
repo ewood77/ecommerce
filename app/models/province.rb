@@ -1,7 +1,7 @@
 class Province < ActiveRecord::Base
   attr_accessible :gst, :hst, :name, :pst
   
-  has_many :Customers
+  has_many :customers
   
   validates :name,       :presence => true
   validates :pst, :gst,  :presence => true, :if => :pst_province?
