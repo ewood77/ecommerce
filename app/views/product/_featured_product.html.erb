@@ -1,0 +1,9 @@
+<% @featured_products.each do |product| %>
+  <div class="thumbnail featured_product">
+    <%= image_tag product.image_path %>
+    <div class="caption">
+      <p><strong><%= product.name %></strong></p>
+      <p><strong>Price:</strong> $<%= product.price %> | <strong>Category:</strong> <%= product.category.name %></p>
+    </div>
+  </div>
+<% end %>

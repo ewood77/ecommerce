@@ -1,15 +1,5 @@
 @import "bootstrap";
 
-.content {
-  border: 1px solid #ccc;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-
-  width: 700px;
-  
-  padding: 10px;
-}
-
 .navbar-static-top {
   width: 100%;
   margin-bottom: 0px;
@@ -21,18 +11,22 @@
   min-height: 15px;
 }
 
-.featured {
-  position: absolute;
-  margin-left: 750px;
-  width: 300px;
-  text-align: center;
-}
-
 .all {
   margin-left: 25px;
   width: 700px;
 }
 
-.input-group-sm {
-  float: right;
+.featured {
+  position: absolute;
+  margin-left: 750px;
+  margin-top: -523px;
+  width: 300px;
+  text-align: center;
+}
+
+.featured_product img {
+  width: 60%;
+}
+.search {
+  width: 500px;
 }

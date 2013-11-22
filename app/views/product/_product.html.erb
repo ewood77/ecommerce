@@ -1,5 +1,4 @@
 <% @products.each do |product| %>
-  <div class="panel-body">
     <div class="col-sm-3">
       <div class="thumbnail">
         <%= image_tag product.image_path %>
@@ -8,6 +7,5 @@
           <p><strong>Price:</strong> $<%= product.price %></p>
         </div>
       </div>
-    </div>
   </div>
 <% end %>

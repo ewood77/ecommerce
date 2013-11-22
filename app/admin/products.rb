@@ -6,6 +6,7 @@ ActiveAdmin.register Product do
 
     index do
       selectable_column
+      column :id
       column :name
       column :category
       column :price
