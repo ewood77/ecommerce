@@ -4,10 +4,21 @@
   width: 100%;
   margin-bottom: 0px;
   padding-bottom: 0px;
+  
+  border-color: #372E25;
+  border-bottom-color: #A91D14;
+  background-color: #372E25;
+  color: #372E25;
+
+}
+
+.navbar {
+  height: 5px;
 }
 
 .product-nav {
   width: 100%;
+  background-color: #A91D14;
   min-height: 15px;
 }
 
@@ -22,6 +33,20 @@
   margin-top: -523px;
   width: 300px;
   text-align: center;
+}
+
+.panel {
+  border-color: #372E25;
+
+  .panel-heading {
+    background-color: #A91D14;
+    border-color: #372E25;
+    color: #E4D4D4;
+  }
+  
+  .panel-body {
+    color: #E4D4D4;
+  }
 }
 
 .featured_product img {
