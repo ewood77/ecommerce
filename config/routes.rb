@@ -1,24 +1,17 @@
 Ecommerce::Application.routes.draw do
   get "static/about"
-
   get "static/contact"
-
   get "product/index"
-  get "about/index"
 
   root :to => 'product#index', :via => :get
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  # match '/about' => "about#about", :as => 'about', :via => :get
-  # match '/contact' => "about#contact", :as => 'contact', :via => :get
-  
-  match '/cfl' => "products#cfl", :as => 'cfl', :via => :get
-  match '/nfl' => "products#nfl", :as => 'nfl', :via => :get
-  match '/nba' => "products#nba", :as => 'nba', :via => :get
-  match '/mlb' => "products#mlb", :as => 'mlb', :via => :get
-  match '/nhl' => "products#nhl", :as => 'nhl', :via => :get
+  match '/about' => "static#about", :as => 'about', :via => :get
+  match '/contact' => "static#contact", :as => 'contact', :via => :get
+
+  match 'products/:id' => "product#show", :as => 'product', :via => :get
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

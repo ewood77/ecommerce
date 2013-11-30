@@ -53,11 +53,43 @@
   float: left;
   border: 1px solid #eee;
   margin-left: 17px;
+
+  img{
+    width: 90px;
+  }
+}
+
+.image_wrapper{
+  width: 850px;
+  margin-left: 25px;
+  border: 2px solid #ccc;
+
+  border-radius: 10px 10px 10px 0px;
+
+  img{
+    width: 400px;
+    padding: 10px;
+  }
+
+  .image_content{
+    padding: 10px;
+    float: right;
+    margin-right: 25px;
+
+    .available{
+      color: #3c0;
+    }
+
+    .unavailable{
+      color: #c00;
+    }
+  }
 }
 
 .featured_product img {
   width: 60%;
 }
+
 .search {
   width: 500px;
 }

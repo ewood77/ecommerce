@@ -1,0 +1,18 @@
+<div class="image_wrapper">
+<%= image_tag @product.image_path %>
+  <div class="image_content">
+  	<h1><%= @product.name %></h1>
+  	<p><strong>Category:</strong> <%= @product.category.name %></p>
+    <p><strong>Price:</strong> $<%= @product.price %></p>
+    <% if @product.stock_quantity > 0 %>
+    	<p><strong>Availability: <span class="available">In Stock</span></strong></p>
+    <% else %>
+    	<p><strong>Availability: <span class="unavailable">Not In Stock</span></strong></p>
+    <% end %>
+    <% if @product.stock_quantity < 3 and @product.stock_quantity > 0 %>
+    	<p><strong><span class="available">Only <%= @product.stock_quantity %> left!</span></strong></p>
+    <% end %>
+    <br />
+    <p><%= @product.description %></p>
+	</div>
+</div>
