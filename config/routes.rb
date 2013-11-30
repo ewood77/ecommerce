@@ -1,4 +1,8 @@
 Ecommerce::Application.routes.draw do
+  get "static/about"
+
+  get "static/contact"
+
   get "product/index"
   get "about/index"
 
