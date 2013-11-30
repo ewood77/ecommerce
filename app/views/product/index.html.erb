@@ -2,7 +2,7 @@
   <div class="panel-heading"><strong>&gt; All Products</strong></div>
     <div class="panel-body">
       <div class="row">
-        <%= render 'product' %>
+        <%= render 'product', collection: @products, paginate: true, size: 5 %>
       </div>
     </div>
   </div>

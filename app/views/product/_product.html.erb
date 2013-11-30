@@ -1,6 +1,7 @@
 <% @products.each do |product| %>
     <div class="all_products">
       <div class="thumbnail">
+        
         <%= image_tag product.image_path %>
         <div class="caption">
           <p><strong>Price:</strong> $<%= product.price %></p>
