@@ -7,8 +7,8 @@ Ecommerce::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  match '/about' => "about#about", :as => 'about', :via => :get
-  match '/contact' => "about#contact", :as => 'contact', :via => :get
+  # match '/about' => "about#about", :as => 'about', :via => :get
+  # match '/contact' => "about#contact", :as => 'contact', :via => :get
   
   match '/cfl' => "products#cfl", :as => 'cfl', :via => :get
   match '/nfl' => "products#nfl", :as => 'nfl', :via => :get
