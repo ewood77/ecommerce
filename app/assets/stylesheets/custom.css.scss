@@ -12,25 +12,18 @@
 
 }
 
-.navbar {
-  height: 5px;
-}
-
 .product-nav {
   width: 100%;
   background-color: #A91D14;
-  min-height: 15px;
+  min-height: 10px;
 }
 
 .all {
   margin-left: 25px;
-  width: 700px;
+  width: 650px;
 }
 
 .featured {
-  position: absolute;
-  margin-left: 750px;
-  margin-top: -523px;
   width: 300px;
   text-align: center;
 }
@@ -47,6 +40,19 @@
   .panel-body {
     color: #E4D4D4;
   }
+}
+
+.all_products {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail {
+  width: 100px;
+  float: left;
+  border: 1px solid #eee;
+  margin-left: 17px;
 }
 
 .featured_product img {
