@@ -11,8 +11,13 @@ Ecommerce::Application.routes.draw do
   match '/about' => "static#about", :as => 'about', :via => :get
   match '/contact' => "static#contact", :as => 'contact', :via => :get
 
-  match 'products/:id' => "product#show", :as => 'product', :via => :get
   
+  match 'products/on_sale' => "product#sale", :as => 'sale', :via => :get
+  match 'products/new_items' => "product#new", :as => 'new', :via => :get
+  
+
+
+  match 'products/:id' => "product#show", :as => 'product', :via => :get
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
