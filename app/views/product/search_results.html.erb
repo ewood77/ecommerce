@@ -1,0 +1,33 @@
+<div class="panel panel-default all">
+  <div class="panel-heading"><strong>Search Results</strong></div>
+    <div class="panel-body">
+      <div class="row">
+
+      	<% if @searched_products.empty? %>
+				  <p class='not_found'>
+				    Sorry, your search for '<%= params[:keywords] %>' returned no results.
+				  </p>
+				<% else %>
+	        <%= @searched_products.each do |product| %>
+	        	<% if product.price < 13 %>
+					  	<div class="thumbnail sale">
+					    	<%= link_to (image_tag product.image_path), product %>
+					      <div class="caption">
+					        <p><strong>Price:</strong> $<%= product.price %></p>
+					      </div>
+					     </div>
+					  	<% else %>
+					  	<div class="thumbnail">
+					      <%= link_to (image_tag product.image_path), product %>
+					      <div class="caption">
+					        <p><strong>Price:</strong> $<%= product.price %></p>
+					      </div>
+					    </div>
+					  <% end %>
+	        <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

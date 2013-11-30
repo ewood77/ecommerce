@@ -91,5 +91,20 @@
 }
 
 .search {
+  margin-top: 10px;
   width: 500px;
+}
+
+.available{
+  text-align: center;
+  color: #3c0;
+}
+
+.not_found{
+  margin-left: 25px;
+  color: #c00;
+}
+
+.sale{
+  border: 1px solid #3c0;
 }

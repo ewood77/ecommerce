@@ -1,10 +1,19 @@
 <% @products.each do |product| %>
-    <div class="all_products">
-      <div class="thumbnail">
-        <%= link_to (image_tag product.image_path), product %>
-        <div class="caption">
-          <p><strong>Price:</strong> $<%= product.price %></p>
-        </div>
-      </div>
+  <div class="all_products">
+    	<% if product.price < 13 %>
+    	<div class="thumbnail sale">
+	    	<%= link_to (image_tag product.image_path), product %>
+	      <div class="caption">
+	        <p><strong>Price:</strong> $<%= product.price %></p>
+	      </div>
+	     </div>
+    	<% else %>
+    	<div class="thumbnail">
+	      <%= link_to (image_tag product.image_path), product %>
+	      <div class="caption">
+	        <p><strong>Price:</strong> $<%= product.price %></p>
+	      </div>
+	     </div>
+	    <% end %>
   </div>
 <% end %>

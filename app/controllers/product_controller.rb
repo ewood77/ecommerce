@@ -15,4 +15,11 @@ class ProductController < ApplicationController
   def new
     @new_products = Product.order(:updated_at).limit(10)
   end
+
+  def search
+  end
+
+  def search_results
+    @searched_products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
+  end
 end

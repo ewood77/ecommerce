@@ -15,7 +15,7 @@ Ecommerce::Application.routes.draw do
   match 'products/on_sale' => "product#sale", :as => 'sale', :via => :get
   match 'products/new_items' => "product#new", :as => 'new', :via => :get
   
-
+  match 'search_results' => 'product#search_results', :as => 'search_results', :via => :post
 
   match 'products/:id' => "product#show", :as => 'product', :via => :get
   # The priority is based upon order of creation:
