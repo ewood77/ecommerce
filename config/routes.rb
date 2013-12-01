@@ -21,6 +21,11 @@ Ecommerce::Application.routes.draw do
   match 'products/nhl' => "product#nhl", :as => 'nhl', :via => :get
   
   match 'search_results' => 'product#search_results', :as => 'search_results', :via => :post
+  match 'search_cfl' => 'product#search_cfl', :as => 'search_cfl', :via => :post
+  match 'search_nfl' => 'product#search_nfl', :as => 'search_nfl', :via => :post
+  match 'search_nba' => 'product#search_nba', :as => 'search_nba', :via => :post
+  match 'search_mlb' => 'product#search_mlb', :as => 'search_mlb', :via => :post
+  match 'search_nhl' => 'product#search_nhl', :as => 'search_nhl', :via => :post
 
   resources :product do
     collection do

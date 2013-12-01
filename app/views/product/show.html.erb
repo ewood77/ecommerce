@@ -1,5 +1,5 @@
 <div class="image_wrapper">
-<%= image_tag @product.image_path %>
+	<%= image_tag @product.image_path %>
   <div class="image_content">
   	<h1><%= @product.name %></h1>
   	<p><strong>Category:</strong> <%= @product.category.name %></p>
@@ -17,7 +17,6 @@
     <% end %>
     <br />
     <p><%= @product.description %></p>
-    <br />
     <br />
     <br />
     <% if session[:products].include?(@product.id) %>

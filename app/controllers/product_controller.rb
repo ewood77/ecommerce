@@ -10,20 +10,40 @@ class ProductController < ApplicationController
     @cfl = Product.where(:category_id => 1)
   end
 
+  def search_cfl
+    @searched_cfl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 1)
+  end
+
   def nfl
     @nfl = Product.where(:category_id => 2)
+  end
+
+  def search_nfl
+    @searched_nfl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 2)
   end
 
   def nba
     @nba = Product.where(:category_id => 3)
   end
 
+  def search_nba
+    @searched_nba = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 3)
+  end
+
   def mlb
     @mlb = Product.where(:category_id => 4)
   end
 
+  def search_mlb
+    @searched_mlb = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 4)
+  end
+
   def nhl
     @nhl = Product.where(:category_id => 5)
+  end
+
+  def search_nhl
+    @searched_nhl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 5)
   end
 
   def add_product

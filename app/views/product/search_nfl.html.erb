@@ -2,12 +2,12 @@
   <div class="panel-heading"><strong>Search Results</strong></div>
     <div class="panel-body">
       <div class="row">
-      	<% if @searched_products.empty? %>
+      	<% if @searched_nfl.empty? %>
 				  <p class='not_found'>
 				    Sorry, your search for '<%= params[:keywords] %>' returned no results.
 				  </p>
 				<% else %>
-	        <%= @searched_products.each do |product| %>
+	        <%= @searched_nfl.each do |product| %>
 	        	<% if product.price < 13 %>
 					  	<div class="thumbnail sale">
 					  <% else %>
