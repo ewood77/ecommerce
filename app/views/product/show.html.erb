@@ -17,5 +17,13 @@
     <% end %>
     <br />
     <p><%= @product.description %></p>
+    <br />
+    <br />
+    <br />
+    <% if session[:products].include?(@product.id) %>
+    	<p><%= link_to 'Remove from Cart', remove_product_product_path(@product) %></p>
+    <% else %>
+    	<p><%= link_to 'Add to Cart', add_product_product_path(@product) %></p>
+    <% end %>
 	</div>
 </div>

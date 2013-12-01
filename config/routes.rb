@@ -10,12 +10,21 @@ Ecommerce::Application.routes.draw do
   
   match '/about' => "static#about", :as => 'about', :via => :get
   match '/contact' => "static#contact", :as => 'contact', :via => :get
-
   
   match 'products/on_sale' => "product#sale", :as => 'sale', :via => :get
   match 'products/new_items' => "product#new", :as => 'new', :via => :get
   
   match 'search_results' => 'product#search_results', :as => 'search_results', :via => :post
+
+  resources :product do
+    collection do
+      get :clear_cart
+    end
+    member do
+      get :add_product
+      get :remove_product
+    end
+  end
 
   match 'products/:id' => "product#show", :as => 'product', :via => :get
   # The priority is based upon order of creation:

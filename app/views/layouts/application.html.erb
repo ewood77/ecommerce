@@ -11,7 +11,6 @@
   <div class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
       <ul class="nav navbar-nav navbar">
-        <li><%= link_to 'All', root_path %></li>
         <li><%= link_to 'On Sale', sale_path %></li>
         <li><%= link_to 'New', new_path %></li>
         <li class="dropdown">
@@ -29,7 +28,7 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'About', about_path %></li>
         <li><%= link_to 'Contact', contact_path %></li>
-        <li class+'search'>
+        <li class='search'>
           <%= form_tag search_results_path do %>
             <%= text_field_tag :keywords %>
             <%= submit_tag 'Search' %>
@@ -38,16 +37,6 @@
       </ul>
     </div>
   </div>
-  
-<br />
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="input-group input-group-sm search">
-      
-    </div>
-  </div>
-</div>  
   
 <br />
 

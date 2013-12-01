@@ -2,8 +2,27 @@
   <div class="panel-heading"><strong>All Products</strong></div>
     <div class="panel-body">
       <div class="row">
-        <%= render 'product', collection: @products, paginate: true, size: 5 %>
+        <%= render 'product' %>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default cart">
+  <div class="panel-heading"><strong>Shopping Cart</strong></div>
+    <div class="panel-body">
+      <% if session[:products].empty? %>
+        <p>Your cart is empty</p>
+      <% else %>
+        <% @products.each do |product| %>
+          <%= render 'product' %>
+        <% end %>
+      <% end %>
+      <hr />
+      <p>
+        <%= link_to 'Clear Shopping Cart', root_path %>
+        <%= link_to 'Checkout', root_path %>
+      </p>
     </div>
   </div>
 </div>

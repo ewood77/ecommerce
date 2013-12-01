@@ -1,7 +1,26 @@
 class ProductController < ApplicationController
+  before_filter :initialize_cart
+
   def index
     @products = Product.order(:name)
-    @featured_products = Product.all.shuffle[0..2]
+    @featured_products = Product.all.shuffle[0..3]
+  end
+
+  def add_product
+    id = params[:id].to_i
+    session[:cart] << id  unless session[:cart].include?(id)
+    redirect_to :action => :index
+  end
+
+  def remove_product
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to :action => :index
+  end
+
+  def clear_cart
+    session[:cart] = nil
+    redirect_to :action => index
   end
 
   def show
@@ -16,10 +35,14 @@ class ProductController < ApplicationController
     @new_products = Product.order(:updated_at).limit(10)
   end
 
-  def search
-  end
-
   def search_results
     @searched_products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
+  end
+
+protected
+  def initialize_cart
+    session[:cart] ||= []
+    @cart = []
+    session[:cart].each {|id| @cart << Product.find(id)}
   end
 end

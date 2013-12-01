@@ -32,7 +32,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 
 #paginate
-gem "paginate", "~> 3.0.0"
+gem "will_paginate", "~> 3.0.5"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
