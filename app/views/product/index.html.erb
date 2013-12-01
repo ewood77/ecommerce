@@ -11,7 +11,7 @@
 <div class="panel panel-default cart">
   <div class="panel-heading"><strong>Shopping Cart</strong></div>
     <div class="panel-body">
-      <% if session[:products].empty? %>
+      <% if session[:cart].empty? %>
         <p>Your cart is empty</p>
       <% else %>
         <% @products.each do |product| %>

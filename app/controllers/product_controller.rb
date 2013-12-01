@@ -6,6 +6,26 @@ class ProductController < ApplicationController
     @featured_products = Product.all.shuffle[0..3]
   end
 
+  def cfl
+    @cfl = Product.where(:category_id => 1)
+  end
+
+  def nfl
+    @nfl = Product.where(:category_id => 2)
+  end
+
+  def nba
+    @nba = Product.where(:category_id => 3)
+  end
+
+  def mlb
+    @mlb = Product.where(:category_id => 4)
+  end
+
+  def nhl
+    @nhl = Product.where(:category_id => 5)
+  end
+
   def add_product
     id = params[:id].to_i
     session[:cart] << id  unless session[:cart].include?(id)

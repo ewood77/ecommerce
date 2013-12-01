@@ -13,6 +13,12 @@ Ecommerce::Application.routes.draw do
   
   match 'products/on_sale' => "product#sale", :as => 'sale', :via => :get
   match 'products/new_items' => "product#new", :as => 'new', :via => :get
+
+  match 'products/cfl' => "product#cfl", :as => 'cfl', :via => :get
+  match 'products/nfl' => "product#nfl", :as => 'nfl', :via => :get
+  match 'products/nba' => "product#nba", :as => 'nba', :via => :get
+  match 'products/mlb' => "product#mlb", :as => 'mlb', :via => :get
+  match 'products/nhl' => "product#nhl", :as => 'nhl', :via => :get
   
   match 'search_results' => 'product#search_results', :as => 'search_results', :via => :post
 

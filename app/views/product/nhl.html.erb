@@ -1,0 +1,27 @@
+<div class="panel panel-default all">
+  <div class="panel-heading"><strong>All Products</strong></div>
+    <div class="panel-body">
+      <div class="row">
+        <% @nhl.each do |product| %>
+  <div class="all_products">
+    	<% if product.price < 13 %>
+    	<div class="thumbnail sale">
+	    	<%= link_to (image_tag product.image_path), product %>
+	      <div class="caption">
+	        <p><strong>Price:</strong> $<%= product.price %></p>
+	      </div>
+	     </div>
+    	<% else %>
+    	<div class="thumbnail">
+	      <%= link_to (image_tag product.image_path), product %>
+	      <div class="caption">
+	        <p><strong>Price:</strong> $<%= product.price %></p>
+	      </div>
+	     </div>
+	    <% end %>
+  </div>
+<% end %>
+      </div>
+    </div>
+  </div>
+</div>
