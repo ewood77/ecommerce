@@ -2,7 +2,7 @@
 	<%= image_tag @product.image_path %>
   <div class="image_content">
   	<h1><%= @product.name %></h1>
-  	<p><strong>Category:</strong> <%= @product.category.name %></p>
+  	<p><strong>Category:</strong> <%= @product.category.name %></p> 
     <p>
     	<strong>Price:</strong> $<%= @product.price %>
     	<% if @product.price < 13 %><span class="available"> On Sale!<% end %></span>
@@ -19,10 +19,14 @@
     <p><%= @product.description %></p>
     <br />
     <br />
-    <% if session[:products].include?(@product.id) %>
-    	<p><%= link_to 'Remove from Cart', remove_product_product_path(@product) %></p>
-    <% else %>
-    	<p><%= link_to 'Add to Cart', add_product_product_path(@product) %></p>
+    <% if @product.stock_quantity > 0 %>
+        <% if session[:cart].include?(@product.id) %>
+          <%= link_to 'Remove from Cart', remove_product_path(@product.id), :method => :post %>
+        <% else %>
+          <%= link_to 'Add to Cart', add_product_path(@product.id), :method => :post %>
+        <% end %>
     <% end %>
 	</div>
 </div>
+
+<!-- render :partial => 'customers/friendlinks', :locals => { :customer => customer } -->

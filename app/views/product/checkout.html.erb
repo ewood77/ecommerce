@@ -1,0 +1,26 @@
+<h2>CHECKOUT</h2>
+
+<%= form_for @customer, url: finish_checkout_path do |f| %>
+	<%= label_tag(:first_name, "First Name") %>
+	<%= f.text_field :first_name %>
+	<br />
+	<%= label_tag(:last_name, "Last Name") %>
+	<%= f.text_field :last_name %>
+	<br />
+	<%= label_tag(:address, "Address") %>
+	<%= f.text_field :address %>
+	<br />
+	<%= label_tag(:city, "City") %>
+	<%= f.text_field :city %>
+	<br />
+	<%= label_tag(:city, "Province") %>
+	<%= f.select :province_id, Province.all.collect {|p| [ p.name ] } %>
+	<br />
+	<%= label_tag(:postal_code, "Postal Code") %>
+	<%= f.text_field :postal_code %>
+	<br />
+	<%= label_tag(:email, "Email Address") %>
+	<%= f.text_field :email %>
+	<br />
+  <%= f.submit "Finish Checkout Process" %>
+<% end %>

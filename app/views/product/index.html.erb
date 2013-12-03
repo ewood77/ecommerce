@@ -4,24 +4,34 @@
       <div class="row">
         <%= render 'product' %>
       </div>
+        <%= paginate @products %>
     </div>
   </div>
 </div>
 
 <div class="panel panel-default cart">
   <div class="panel-heading"><strong>Shopping Cart</strong></div>
-    <div class="panel-body">
+    <div class="panel-body cart_contents">
       <% if session[:cart].empty? %>
         <p>Your cart is empty</p>
       <% else %>
-        <% @products.each do |product| %>
-          <%= render 'product' %>
+        <% @cart.each do |item| %>
+          <%= image_tag item.image_path %>
+          <p><%= item.name %></p>
+          <p>Price: <%= item.price %></p>
+          <%= link_to 'Remove from Cart', remove_product_path(item.id), :method => :post %>
+        <hr />
         <% end %>
       <% end %>
       <hr />
       <p>
-        <%= link_to 'Clear Shopping Cart', root_path %>
-        <%= link_to 'Checkout', root_path %>
+        <% if session[:cart].empty? %>
+          <p class="non_link">Clear Shopping Cart | Checkout</p>
+        <% else %>
+          <%= link_to 'Clear Shopping Cart', clear_cart_path, :method => :post %>
+          | 
+          <%= link_to 'Checkout', checkout_path %>
+        <% end %>
       </p>
     </div>
   </div>

@@ -7,7 +7,7 @@
 				    Sorry, your search for '<%= params[:keywords] %>' returned no results.
 				  </p>
 				<% else %>
-	        <%= @searched_nhl.each do |product| %>
+	        <% @searched_nhl.each do |product| %>
 	        	<% if product.price < 13 %>
 					  	<div class="thumbnail sale">
 					  <% else %>

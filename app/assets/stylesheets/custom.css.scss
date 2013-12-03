@@ -5,16 +5,9 @@
   margin-bottom: 0px;
   padding-bottom: 0px;
   
-  border-color: #FF9900;
-  background-color: #3299BB;
-  color: #FFFFFF;
-
-  navbar{
-
-    li link{
-      color: #FFFFFF;
-    }
-  }
+  border-color: #000000;
+  background-color: #CCCCCC;
+  color: #000000;
 }
 
 .all {
@@ -23,15 +16,13 @@
 }
 
 .cart {
-  position: absolute;
   width: 500px;
   text-align: center;
-  margin-top: -300px;
+  margin-top: -1281px;
   margin-left: 700px;
 }
 
 .featured {
-  position: absolute;
   width: 500px;
   text-align: center;
   margin-left: 700px;
@@ -41,13 +32,13 @@
   border-color: #000;
 
   .panel-heading {
-    background-color: #3299BB;
-    border-color: #FF9900;
-    color: #FFFFFF;
+    background-color: #CCCCCC;
+    border-color: #000000;
+    color: #000000;
   }
   
   .panel-body {
-    color: #FFFFFF;
+    color: #000000;
   }
 }
 
@@ -71,7 +62,7 @@
 .image_wrapper{
   width: 850px;
   margin-left: 25px;
-  border: 2px solid #FF9900;
+  border: 2px solid #000;
 
   border-radius: 10px 10px 10px 0px;
 
@@ -122,6 +113,10 @@
   color: #3c0;
 }
 
+.non_link{
+  color: #bbb;
+}
+
 .not_found{
   margin-left: 25px;
   color: #c00;
@@ -129,4 +124,11 @@
 
 .sale{
   border: 1px solid #3c0;
+}
+
+.cart_contents{
+
+  img{
+    width: 90px;
+  }
 }

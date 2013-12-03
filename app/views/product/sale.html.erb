@@ -2,10 +2,10 @@
   <div class="panel-heading"><strong>Sale Items</strong></div>
     <div class="panel-body">
       <div class="row">
-        <%= @sale_products.each do |product| %>
+        <% @sale_products.each do |product| %>
         	<div class="all_products">
 			      <div class="thumbnail sale">
-			        <%= link_to (image_tag product.image_path), product %>
+			        <%= link_to (image_tag product.image_path), product_path(product.id) %>
 			        <div class="caption">
 			          <p><strong>Price:</strong> $<%= product.price %></p>
 			        </div>

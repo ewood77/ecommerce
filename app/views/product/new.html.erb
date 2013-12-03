@@ -2,7 +2,7 @@
   <div class="panel-heading"><strong>New Items</strong></div>
     <div class="panel-body">
       <div class="row">
-        <%= @new_products.each do |product| %>
+        <% @new_products.each do |product| %>
         	<div class="all_products">
 			      <div class="thumbnail">
 			        <%= link_to (image_tag product.image_path), product %>

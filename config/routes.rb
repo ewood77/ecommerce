@@ -27,15 +27,14 @@ Ecommerce::Application.routes.draw do
   match 'search_mlb' => 'product#search_mlb', :as => 'search_mlb', :via => :post
   match 'search_nhl' => 'product#search_nhl', :as => 'search_nhl', :via => :post
 
-  resources :product do
-    collection do
-      get :clear_cart
-    end
-    member do
-      get :add_product
-      get :remove_product
-    end
-  end
+
+  match '/clear_cart' => "product#clear_cart", :as => 'clear_cart', :via => :post
+
+  match 'product/add_product/:id' => "product#add_product", :as => 'add_product', :via => :post
+  match 'product/remove_product/:id' => "product#remove_product", :as => 'remove_product', :via => :post
+
+  match '/checkout' => "product#checkout", :as => 'checkout', :via => :get
+  match '/finish_checkout' => "product#finish_checkout", :as => 'finish_checkout', :via => :post
 
   match 'products/:id' => "product#show", :as => 'product', :via => :get
   # The priority is based upon order of creation:
