@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+$green-color: #3c0;
+$red-color: #c00;
+
 .navbar-static-top {
   width: 100%;
   margin-bottom: 0px;
@@ -18,7 +21,7 @@
 .cart {
   width: 500px;
   text-align: center;
-  margin-top: -1281px;
+  margin-top: -1085px;
   margin-left: 700px;
 }
 
@@ -108,9 +111,30 @@
   width: 600px;
 }
 
+.flash{
+  border: 1px solid green-color;
+}
+
 .available{
   text-align: center;
-  color: #3c0;
+  color: green-color;
+}
+
+.unavailable{
+  text-align: center;
+  color: red-color;
+}
+
+.notice{
+  text-align: center;
+  color: green;
+  font-wieght: bold;
+}
+
+.error{
+  text-align: center;
+  color: red;
+  font-weight: bold;
 }
 
 .non_link{
@@ -119,11 +143,11 @@
 
 .not_found{
   margin-left: 25px;
-  color: #c00;
+  color: red-color;
 }
 
 .sale{
-  border: 1px solid #3c0;
+  border: 1px solid green-color;
 }
 
 .cart_contents{
@@ -131,4 +155,8 @@
   img{
     width: 90px;
   }
+}
+
+.footer{
+  margin-top: 10px;
 }

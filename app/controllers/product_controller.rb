@@ -11,7 +11,7 @@ class ProductController < ApplicationController
   end
 
   def search_cfl
-    @searched_cfl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 1)
+    @searched_cfl = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%").where(:category_id => 1)
   end
 
   def nfl
@@ -19,7 +19,7 @@ class ProductController < ApplicationController
   end
 
   def search_nfl
-    @searched_nfl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 2)
+    @searched_nfl = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%").where(:category_id => 2)
   end
 
   def nba
@@ -27,7 +27,7 @@ class ProductController < ApplicationController
   end
 
   def search_nba
-    @searched_nba = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 3)
+    @searched_nba = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%").where(:category_id => 3)
   end
 
   def mlb
@@ -35,7 +35,7 @@ class ProductController < ApplicationController
   end
 
   def search_mlb
-    @searched_mlb = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 4)
+    @searched_mlb = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%").where(:category_id => 4)
   end
 
   def nhl
@@ -43,21 +43,12 @@ class ProductController < ApplicationController
   end
 
   def search_nhl
-    @searched_nhl = Product.where("name LIKE ?", "%#{params[:keywords]}%").where(:category_id => 5)
+    @searched_nhl = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%").where(:category_id => 5)
   end
 
   def add_product
     id = params[:id].to_i
     session[:cart] << id  unless session[:cart].include?(id)
-    # # respond_to do |format|
-    # #   if session[:cart].include?(id)
-    # #     flash[:notice] = 'Item was added to the shopping cart.'
-    # #     format.html { redirect_to :action => :index }
-    # #   else
-    # #     flash.now[:error] = 'Item was not added to the shopping cart.'
-    # #     format.html { redirect_to :action => :index }
-    # #   end
-    # # # end
     redirect_to :action => :index
   end
 
@@ -85,7 +76,7 @@ class ProductController < ApplicationController
   end
 
   def search_results
-    @searched_products = Product.where("name LIKE ?", "%#{params[:keywords]}%")
+    @searched_products = Product.where("name LIKE ? or description LIKE ?", "%#{params[:keywords]}%")
   end
 
   def checkout
@@ -94,24 +85,41 @@ class ProductController < ApplicationController
   end
 
   def finish_checkout
-    @customer = Customer.new
-
-    @customer.first_name = params[:first_name]
-    @customer.last_name = params[:last_name]
-    @customer.address = params[:address]
-    @customer.city = params[:city]
-    @customer.postal_code = params[:postal_code]
-    @customer.email = params[:email]
-    @customer.province_id = params[:province_id]
+    @customer = Customer.new(params[:customer])
 
     if @customer.save
-      
-    else
+      @order = @customer.orders.build
+      @order.pst_rate = @customer.province.pst
+      @order.gst_rate = @customer.province.gst
+      @order.hst_rate = @customer.province.hst
+      @order.status = "New"
+      @order.save
 
+      @total_price = 0
+      @total_tax_rate = @customer.province.pst + @customer.province.gst + @customer.province.hst
+
+      session[:cart].each do |id|
+       product = Product.find(id)
+       line_item = @order.lineItems.build
+       line_item.product = product
+       line_item.price = product.price
+       line_item.quantity = 1
+       product.stock_quantity -= 1
+       product.save
+       line_item.save
+
+       @total_price += product.price
+      end
+
+      @total_tax = @total_price * @total_tax_rate
+      @total_price = @total_price + @total_tax
+
+      flash[:notice] = "Checkout Successful! Total price paid: $#{@total_price.round(2)}"
+    else
+      flash[:error] = "Checkout Unsuccessful!"
     end
 
-
-
+    session[:cart] = nil
     redirect_to :action => :index
   end
 

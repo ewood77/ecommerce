@@ -1,3 +1,12 @@
+<div>
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+  <% end %>
+</div>
+
 <div class="panel panel-default all">
   <div class="panel-heading"><strong>All Products</strong></div>
     <div class="panel-body">
@@ -24,6 +33,12 @@
         <% end %>
       <% end %>
       <hr />
+      <p>Sub-Total:
+        <% sub = 0 %>
+        <% @cart.each do |prod| %>
+          <% sub += prod.price %>
+        <% end %>
+        <%= number_to_currency(sub) %>
       <p>
         <% if session[:cart].empty? %>
           <p class="non_link">Clear Shopping Cart | Checkout</p>
